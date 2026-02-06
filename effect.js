@@ -6,14 +6,17 @@ $('document').ready(function(){
 		var vw;
 		$(window).resize(function(){
 			 vw = $(window).width()/2;
+			 var spacing = Math.min(vw * 0.15, 60); // Responsive spacing, max 60px
+			 var startLeft = vw - (spacing * 3); // Center the balloons
+			 
 			$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
-			$('#b11').animate({top:240, left: vw-350},500);
-			$('#b22').animate({top:240, left: vw-250},500);
-			$('#b33').animate({top:240, left: vw-150},500);
-			$('#b44').animate({top:240, left: vw-50},500);
-			$('#b55').animate({top:240, left: vw+50},500);
-			$('#b66').animate({top:240, left: vw+150},500);
-			$('#b77').animate({top:240, left: vw+250},500);
+			$('#b11').animate({top:240, left: Math.max(10, startLeft)},500);
+			$('#b22').animate({top:240, left: Math.max(10, startLeft + spacing)},500);
+			$('#b33').animate({top:240, left: Math.max(10, startLeft + spacing * 2)},500);
+			$('#b44').animate({top:240, left: Math.max(10, startLeft + spacing * 3)},500);
+			$('#b55').animate({top:240, left: Math.max(10, startLeft + spacing * 4)},500);
+			$('#b66').animate({top:240, left: Math.max(10, startLeft + spacing * 5)},500);
+			$('#b77').animate({top:240, left: Math.min($(window).width() - 110, startLeft + spacing * 6)},500);
 		});
 
 	$('#turn_on').click(function(){
@@ -52,51 +55,65 @@ $('document').ready(function(){
 	});
 
 	function loopOne() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100); // Keep balloon within viewport
+		var randtop = Math.random() * Math.max(0, windowHeight - 300); // Keep balloon within viewport
 		$('#b1').animate({left:randleft,bottom:randtop},10000,function(){
 			loopOne();
 		});
 	}
 	function loopTwo() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b2').animate({left:randleft,bottom:randtop},10000,function(){
 			loopTwo();
 		});
 	}
 	function loopThree() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b3').animate({left:randleft,bottom:randtop},10000,function(){
 			loopThree();
 		});
 	}
 	function loopFour() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b4').animate({left:randleft,bottom:randtop},10000,function(){
 			loopFour();
 		});
 	}
 	function loopFive() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b5').animate({left:randleft,bottom:randtop},10000,function(){
 			loopFive();
 		});
 	}
 
 	function loopSix() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b6').animate({left:randleft,bottom:randtop},10000,function(){
 			loopSix();
 		});
 	}
 	function loopSeven() {
-		var randleft = 1000*Math.random();
-		var randtop = 500*Math.random();
+		var windowWidth = $(window).width();
+		var windowHeight = $(window).height();
+		var randleft = Math.random() * Math.max(0, windowWidth - 100);
+		var randtop = Math.random() * Math.max(0, windowHeight - 300);
 		$('#b7').animate({left:randleft,bottom:randtop},10000,function(){
 			loopSeven();
 		});
@@ -141,6 +158,8 @@ $('document').ready(function(){
 		
 	$('#wish_message').click(function(){
 		 vw = $(window).width()/2;
+		 var spacing = Math.min(vw * 0.15, 60); // Responsive spacing, max 60px
+		 var startLeft = vw - (spacing * 3); // Center the balloons
 
 		$('#b1,#b2,#b3,#b4,#b5,#b6,#b7').stop();
 		$('#b1').attr('id','b11');
@@ -150,13 +169,13 @@ $('document').ready(function(){
 		$('#b5').attr('id','b55')
 		$('#b6').attr('id','b66')
 		$('#b7').attr('id','b77')
-		$('#b11').animate({top:240, left: vw-350},500);
-		$('#b22').animate({top:240, left: vw-250},500);
-		$('#b33').animate({top:240, left: vw-150},500);
-		$('#b44').animate({top:240, left: vw-50},500);
-		$('#b55').animate({top:240, left: vw+50},500);
-		$('#b66').animate({top:240, left: vw+150},500);
-		$('#b77').animate({top:240, left: vw+250},500);
+		$('#b11').animate({top:240, left: Math.max(10, startLeft)},500);
+		$('#b22').animate({top:240, left: Math.max(10, startLeft + spacing)},500);
+		$('#b33').animate({top:240, left: Math.max(10, startLeft + spacing * 2)},500);
+		$('#b44').animate({top:240, left: Math.max(10, startLeft + spacing * 3)},500);
+		$('#b55').animate({top:240, left: Math.max(10, startLeft + spacing * 4)},500);
+		$('#b66').animate({top:240, left: Math.max(10, startLeft + spacing * 5)},500);
+		$('#b77').animate({top:240, left: Math.min($(window).width() - 110, startLeft + spacing * 6)},500);
 		$('.balloons').css('opacity','0.9');
 		$('.balloons h2').fadeIn(3000);
 		$(this).fadeOut('slow').delay(3000).promise().done(function(){
